@@ -39,7 +39,6 @@ body{
   width: 100vw;
   overflow-x: hidden;
   font-size: $small;
-  padding-top: 24px;
 }
 
 h1{
@@ -47,8 +46,40 @@ h1{
   font-size: $big;
   line-height: 1.5;
   margin: 0;
-  margin-left: 2vw;
-  padding-bottom: 24px;
+}
+
+h2{
+  font-weight: normal;
+  line-height: 1;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding: 2vw;
+}
+
+.button{
+  background-color: white;
+  border: 2px solid $black;
+  padding: 5px 20px;
+  width: 160px;
+  text-align: center;
+  margin-right: 0;
+  margin-left: auto;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  &:after{
+    content: "zwart-wit"
+  }
+  &.active{
+    background-color: $black;
+    color: white;
+    // border-color: white;
+    &:after{
+      // content: "kleur"
+    }
+  }
 }
 
 
@@ -113,15 +144,11 @@ a{
     }
   }
   &.open{
-    // animation: colorFade1 0.7s ease 1;
+    animation: colorFade 0.7s ease 1;
     animation-delay: 0.2s;
     animation-fill-mode: forwards;
     background-color: transparent;
     color: $black;
-    // .line{
-    //   border-color: $red;
-    // }
-   
     .collapsible-content{
       height: 0;
       opacity: 0;
@@ -132,7 +159,7 @@ a{
   }
 }
 
-.collapsible:nth-child(6n + 2){
+.color .collapsible:nth-child(6n + 2){
   &.open{
     animation: colorFade1 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -142,7 +169,7 @@ a{
   }
 }
 
-.collapsible:nth-child(6n + 3){
+.color .collapsible:nth-child(6n + 3){
   &.open{
     animation: colorFade2 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -152,7 +179,7 @@ a{
   }
 }
 
-.collapsible:nth-child(6n + 4){
+.color .collapsible:nth-child(6n + 4){
   &.open{
     animation: colorFade3 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -162,7 +189,7 @@ a{
   }
 }
 
-.collapsible:nth-child(6n + 5){
+.color .collapsible:nth-child(6n + 5){
   &.open{
     animation: colorFade4 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -172,7 +199,7 @@ a{
   }
 }
 
-.collapsible:nth-child(6n + 6){
+.color .collapsible:nth-child(6n + 6){
   &.open{
     animation: colorFade5 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -182,7 +209,7 @@ a{
   }
 }
 
-.collapsible:nth-child(6n + 7){
+.color .collapsible:nth-child(6n + 7){
   &.open{
     animation: colorFade6 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -222,6 +249,10 @@ a{
   100% {background-color:$neongreen; color:$mgreen;}
 }
 
+@keyframes colorFade {
+  0%   {background-color:transparent; color: $black;}
+  100% {background-color:white; color:$black;}
+}
 
 @keyframes fadeIn {
   0%   {height: 0; opacity: 0;}
