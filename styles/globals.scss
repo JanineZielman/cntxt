@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$black: #000;
+$grey: rgb(228,228,228);
+
+$purple: #962350;
+$red: #F03E26;
+
+$lgreen: #CEF186;
+$dgreen: #009253;
+
+$dpurple: #562048;
+$blue: #3151F5;
+
+$gold: #DCBC5B;
+$yellow: #E7FF26;
+
+$pink: #F455EA;
+$brown: #8E600C;
+
+$neongreen: #7DFF93;
+$mgreen: #314700;
+
+
+$big: 90px;
+$medium: 40px;
+$small: 24px;
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  color: $black;
+  background-color: $grey;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  width: 100vw;
+  overflow-x: hidden;
+  font-size: $small;
+  padding-top: 24px;
+}
+
+h1{
+  font-weight: normal;
+  font-size: $big;
+  line-height: 1.5;
+  margin: 0;
+  margin-left: 2vw;
+  padding-bottom: 24px;
+}
+
+
+.slide-image{
+  cursor: pointer;
+}
+
+p{
+  font-size: $small;
+  line-height: 1.3;
+}
+
+strong{
+  font-weight: 600;
+}
+
+ul, li{
+  font-size: $small;
+}
+
+a{
+  color: inherit;
+}
+
+.collapsible{
+  padding: 14px 0;
+
+  .trigger{
+    font-size: $medium;
+    width: 100%;
+    display: flex;
+    white-space: nowrap;
+    cursor: pointer;
+    padding: 0 2vw;
+    .line{
+      width: 100%;
+      border-bottom: 2px solid $black;
+      margin-left: 14px;
+    }
+  }
+  .collapsible-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 0;
+    opacity: 1;
+    animation: fadeOut 0.7s ease 1;
+    animation-fill-mode: forwards;
+    overflow-y: hidden;
+    transition: opacity 1s ease;
+    padding: 0 2vw;
+    .column{
+      width: 45%;
+      img{
+        margin-top: 14px;
+        width: 100%;
+        height: 100%;
+        max-height: 85vh;
+        object-fit: cover;
+      }
+      margin-bottom: 48px;
+    }
+  }
+  &.open{
+    // animation: colorFade1 0.7s ease 1;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+    background-color: transparent;
+    color: $black;
+    // .line{
+    //   border-color: $red;
+    // }
+   
+    .collapsible-content{
+      height: 0;
+      opacity: 0;
+      overflow-y: auto;
+      animation: fadeIn 0.7s ease 1;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+.collapsible:nth-child(6n + 2){
+  &.open{
+    animation: colorFade1 0.7s ease 1;
+    animation-fill-mode: forwards;
+    .line{
+      border-color: $red;
+    }
+  }
+}
+
+.collapsible:nth-child(6n + 3){
+  &.open{
+    animation: colorFade2 0.7s ease 1;
+    animation-fill-mode: forwards;
+    .line{
+      border-color: $lgreen;
+    }
+  }
+}
+
+.collapsible:nth-child(6n + 4){
+  &.open{
+    animation: colorFade3 0.7s ease 1;
+    animation-fill-mode: forwards;
+    .line{
+      border-color: $blue;
+    }
+  }
+}
+
+.collapsible:nth-child(6n + 5){
+  &.open{
+    animation: colorFade4 0.7s ease 1;
+    animation-fill-mode: forwards;
+    .line{
+      border-color: $yellow;
+    }
+  }
+}
+
+.collapsible:nth-child(6n + 6){
+  &.open{
+    animation: colorFade5 0.7s ease 1;
+    animation-fill-mode: forwards;
+    .line{
+      border-color: $brown;
+    }
+  }
+}
+
+.collapsible:nth-child(6n + 7){
+  &.open{
+    animation: colorFade6 0.7s ease 1;
+    animation-fill-mode: forwards;
+    .line{
+      border-color: $mgreen;
+    }
+  }
+}
+
+@keyframes colorFade1 {
+  0%   {background-color:transparent; color: $black;}
+  100% {background-color:$purple; color:$red;}
+}
+
+@keyframes colorFade2 {
+  0%   {background-color:transparent; color: $black;}
+  100% {background-color:$dgreen; color:$lgreen;}
+}
+
+@keyframes colorFade3 {
+  0%   {background-color:transparent; color: $black;}
+  100% {background-color:$dpurple; color:$blue;}
+}
+
+@keyframes colorFade4 {
+  0%   {background-color:transparent; color: $black;}
+  100% {background-color:$gold; color:$yellow;}
+}
+
+@keyframes colorFade5 {
+  0%   {background-color:transparent; color: $black;}
+  100% {background-color:$pink; color:$brown;}
+}
+
+@keyframes colorFade6 {
+  0%   {background-color:transparent; color: $black;}
+  100% {background-color:$neongreen; color:$mgreen;}
+}
+
+
+@keyframes fadeIn {
+  0%   {height: 0; opacity: 0;}
+  100% {height: fit-content; opacity: 1;}
+}
+
+@keyframes fadeOut {
+  0%   {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+footer{
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: auto;
+  border-top: 2px solid $black;
+  margin-top: 48px;
+  p{
+    font-size: $small;
+    margin-top: 10px;
+  }
+}

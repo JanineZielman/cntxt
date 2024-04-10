@@ -1,0 +1,48 @@
+@media only screen and (max-width: 900px) {
+  $big: 70px;
+  $medium: 30px;
+  $small: 18px;
+
+  p{
+    font-size: $small;
+  }
+
+  h2{
+    font-size: $small;
+  }
+
+  ul, li{
+    font-size: $small;
+  }
+    
+  .collapsible{
+    .trigger{
+      font-size: $medium;
+    }
+    .collapsible-content{
+      flex-direction: column;
+      .column{
+        width: 100%;
+        margin-bottom: 0;
+        img{
+          margin-top: 14px;
+          width: 100%;
+          height: 100%;
+          max-height: 85vh;
+          object-fit: cover;
+        }
+      }
+    }
+    &.open{
+      .collapsible-content{
+        height: auto;
+        opacity: 1;
+      }
+    }
+  }
+  footer{
+    p{
+      font-size: $small;
+    }
+  }
+}
