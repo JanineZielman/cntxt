@@ -20,16 +20,16 @@ interface HomeDocumentData {
    */
   title: prismicT.KeyTextField;
   /**
-   * Video field in *Home*
+   * Slagzin field in *Home*
    *
-   * - **Field Type**: Link to Media
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: home.video
+   * - **API ID Path**: home.slagzin[]
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
    *
    */
-  video: prismicT.LinkToMediaField;
+  slagzin: prismicT.GroupField<Simplify<HomeDocumentDataSlagzinItem>>;
   /**
    * Slice Zone field in *Home*
    *
@@ -41,6 +41,22 @@ interface HomeDocumentData {
    *
    */
   slices: prismicT.SliceZone<HomeDocumentDataSlicesSlice>;
+}
+/**
+ * Item in Home → Slagzin
+ *
+ */
+export interface HomeDocumentDataSlagzinItem {
+  /**
+   * Item field in *Home → Slagzin*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.slagzin[].item
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  item: prismicT.KeyTextField;
 }
 /**
  * Slice for *Home → Slice Zone*
@@ -214,6 +230,7 @@ declare module "@prismicio/client" {
   namespace Content {
     export type {
       HomeDocumentData,
+      HomeDocumentDataSlagzinItem,
       HomeDocumentDataSlicesSlice,
       HomeDocument,
       SettingsDocumentData,

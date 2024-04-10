@@ -29,7 +29,11 @@
       "items": {
         "image": {
           "type": "Image",
-          "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
+          "config": {
+            "label": "Image",
+            "constraint": { "width": 1080 },
+            "thumbnails": []
+          }
         },
         "text": {
           "type": "StructuredText",

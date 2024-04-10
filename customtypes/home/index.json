@@ -10,9 +10,17 @@
         "type": "Text",
         "config": { "label": "Title", "placeholder": "" }
       },
-      "video": {
-        "type": "Link",
-        "config": { "label": "Video", "placeholder": "", "select": "media" }
+      "slagzin": {
+        "type": "Group",
+        "config": {
+          "label": "Slagzin",
+          "fields": {
+            "item": {
+              "type": "Text",
+              "config": { "label": "Item", "placeholder": "" }
+            }
+          }
+        }
       },
       "slices": {
         "type": "Slices",
