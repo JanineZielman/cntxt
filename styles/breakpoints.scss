@@ -1,10 +1,14 @@
 @media only screen and (max-width: 900px) {
-  $big: 70px;
+  $big: 48px;
   $medium: 30px;
   $small: 18px;
 
   p{
     font-size: $small;
+  }
+
+  h1{
+    font-size: $big;
   }
 
   h2{
@@ -14,10 +18,44 @@
   ul, li{
     font-size: $small;
   }
+
+  .header{
+    align-items: center;
+    h1{
+      width: auto;
+    }
+  }
+
+  .slagzin{
+    text-align: center;
+    flex-direction: column;
+    .first, .last, .animation{
+      width: 100%;
+      text-align: center;
+    }
+    .animation{
+      height:  calc($medium * 2);
+    }
+    h2{
+      font-size: $medium;
+      margin-top: calc($medium/2);
+      margin-bottom: calc($medium/2);
+    }
+  }
+
+  .button{
+    font-size: $small;
+  }
     
   .collapsible{
     .trigger{
       font-size: $medium;
+      width: 100%;
+      white-space: wrap;
+      .line{
+        width: auto;
+        flex: auto;
+      }
     }
     .collapsible-content{
       flex-direction: column;

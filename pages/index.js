@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { createClient } from "../prismicio";
 import { SliceZone, PrismicRichText } from "@prismicio/react";
 import { components } from "../slices";
+import Slider from "react-slick";
 
 export default function Home({page, settings}) {
 
@@ -9,6 +10,16 @@ export default function Home({page, settings}) {
     document.getElementById('toggle').classList.toggle('active');
     document.getElementById('content').classList.toggle('color');
   }
+
+  var settingsSlider = {
+    slidesToScroll: 1,
+    arrows: false,
+    dots: false,
+    vertical: true,
+    verticalSwiping: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
 
   return (
     <>
@@ -21,8 +32,21 @@ export default function Home({page, settings}) {
             <h1>{page.data.title}</h1>
             <div className='right'>
               <div className='button' id="toggle" onClick={toggleColor}></div>
-              <h2>Maakt een wereld van verschil</h2>
             </div>
+          </div>
+          <div className='slagzin'>
+            <h2 className='first'>maakt</h2>
+            <div className='animation'>
+              <Slider {...settingsSlider}>
+                {page.data.slagzin.map((item, i) => {
+                  return(
+                    <div><h2>{item.item}</h2></div>
+                  )
+                })}
+              </Slider>
+          
+            </div>
+            <h2 className='last'>van verschil</h2>
           </div>
           <SliceZone slices={page.data.slices} components={components} />
         </div>
