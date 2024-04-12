@@ -24,7 +24,7 @@ $mgreen: #314700;
 
 $big: 90px;
 $medium: 40px;
-$small: 24px;
+$small: 20px;
 
 *{
   box-sizing: border-box;
@@ -163,13 +163,14 @@ a{
     transition: opacity 1s ease;
     padding: 0 3vw;
     .column{
-      width: 49%;
+      width: 45%;
       img{
         margin-top: 14px;
         width: 100%;
         height: 100%;
-        max-height: 85vh;
-        object-fit: cover;
+        max-height: 80vh;
+        object-fit: contain;
+        object-position: center;
       }
       margin-bottom: 48px;
     }
@@ -190,7 +191,7 @@ a{
   }
 }
 
-.color .collapsible:nth-child(6n + 2){
+.color .collapsible:nth-child(6n + 3){
   &.open{
     animation: colorFade1 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -200,7 +201,7 @@ a{
   }
 }
 
-.color .collapsible:nth-child(6n + 3){
+.color .collapsible:nth-child(6n + 4){
   &.open{
     animation: colorFade2 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -210,7 +211,7 @@ a{
   }
 }
 
-.color .collapsible:nth-child(6n + 4){
+.color .collapsible:nth-child(6n + 5){
   &.open{
     animation: colorFade3 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -220,7 +221,7 @@ a{
   }
 }
 
-.color .collapsible:nth-child(6n + 5){
+.color .collapsible:nth-child(6n + 6){
   &.open{
     animation: colorFade4 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -230,7 +231,7 @@ a{
   }
 }
 
-.color .collapsible:nth-child(6n + 6){
+.color .collapsible:nth-child(6n + 7){
   &.open{
     animation: colorFade5 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -240,7 +241,7 @@ a{
   }
 }
 
-.color .collapsible:nth-child(6n + 7){
+.color .collapsible:nth-child(6n + 8){
   &.open{
     animation: colorFade6 0.7s ease 1;
     animation-fill-mode: forwards;
