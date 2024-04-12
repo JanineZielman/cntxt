@@ -33,9 +33,11 @@ const Collapsible = ({ slice }) => {
     sliderRef.current.slickNext();
   }
 
+  console.log(slice.primary.title)
+
 
   return (
-    <div className="collapsible" id={slice.id}>
+    <div className={`collapsible ${slice.primary.title == 'welkom' && 'open'}`} id={slice.id}>
       <div className="trigger" onClick={toggleClass}>{slice.primary.title}<div className="line"></div></div>
       <div className="collapsible-content">
         {slice.primary.imageslideshow != true ?
