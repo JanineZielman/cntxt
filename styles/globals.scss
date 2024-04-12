@@ -40,6 +40,7 @@ body{
   width: 100vw;
   overflow-x: hidden;
   font-size: $small;
+  padding-bottom: 100px;
 }
 
 h1{
@@ -57,19 +58,16 @@ h2{
 .header{
   display: flex;
   justify-content: space-between;
-  padding: 1vw 2vw;
+  padding: 1vw 3vw 0 3vw;
   flex-wrap: wrap;
-  h1{
-    width: 80vw;
-  }
 }
 
 .slagzin{
   display: flex;
-  max-width: 1200px;
+  max-width: 1000px;
   justify-content: center;
   margin: auto;
-  padding: 0 2vw 1vw 2vw;
+  padding: 0 3vw 1vw 3vw;
 
   h2{
     font-size: $medium;
@@ -109,7 +107,7 @@ h2{
     color: white;
     // border-color: white;
     &:after{
-      // content: "kleur"
+      content: "kleur"
     }
   }
 }
@@ -145,7 +143,7 @@ a{
     display: flex;
     cursor: pointer;
 
-    padding: 0 2vw;
+    padding: 0 3vw;
     .line{
       width: auto;
       border-bottom: 2px solid $black;
@@ -163,9 +161,9 @@ a{
     animation-fill-mode: forwards;
     overflow-y: hidden;
     transition: opacity 1s ease;
-    padding: 0 2vw;
+    padding: 0 3vw;
     .column{
-      width: 45%;
+      width: 49%;
       img{
         margin-top: 14px;
         width: 100%;
@@ -237,7 +235,7 @@ a{
     animation: colorFade5 0.7s ease 1;
     animation-fill-mode: forwards;
     .line{
-      border-color: $brown;
+      border-color: $pink;
     }
   }
 }
@@ -247,7 +245,7 @@ a{
     animation: colorFade6 0.7s ease 1;
     animation-fill-mode: forwards;
     .line{
-      border-color: $mgreen;
+      border-color: $neongreen;
     }
   }
 }
@@ -274,12 +272,12 @@ a{
 
 @keyframes colorFade5 {
   0%   {background-color:transparent; color: $black;}
-  100% {background-color:$pink; color:$brown;}
+  100% {background-color:$brown; color:$pink;}
 }
 
 @keyframes colorFade6 {
   0%   {background-color:transparent; color: $black;}
-  100% {background-color:$neongreen; color:$mgreen;}
+  100% {background-color:$mgreen; color:$neongreen;}
 }
 
 @keyframes colorFade {
@@ -298,14 +296,22 @@ a{
 }
 
 footer{
+  position: fixed;
+  bottom: 0;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  width: 95%;
+  width: 100%;
   margin: auto;
-  border-top: 2px solid $black;
   margin-top: 48px;
+  padding: 14px 3vw;
+  background-color: $grey;
   p{
     font-size: $small;
-    margin-top: 10px;
+    margin: 5px 0;
+    a{
+      margin-right: 24px;
+      text-decoration: none;
+    }
   }
 }
