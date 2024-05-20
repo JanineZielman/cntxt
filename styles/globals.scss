@@ -137,16 +137,20 @@ a{
   color: inherit;
 }
 
-.collapsible{
-  padding: 14px 0;
 
+.grey .collapsible *{
+  backdrop-filter: grayscale(1);
+}
+
+.collapsible{
+  // padding: 14px 0;
   .trigger{
     font-size: $medium;
     width: 100%;
     display: flex;
     cursor: pointer;
 
-    padding: 0 3vw;
+    padding: 14px 3vw;
     .line{
       width: auto;
       border-bottom: 2px solid $black;
@@ -194,7 +198,7 @@ a{
   }
 }
 
-.color .collapsible:nth-child(6n + 3){
+ .collapsible:nth-child(6n + 3){
   &.open{
     animation: colorFade1 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -204,7 +208,7 @@ a{
   }
 }
 
-.color .collapsible:nth-child(6n + 4){
+ .collapsible:nth-child(6n + 4){
   &.open{
     animation: colorFade2 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -214,7 +218,7 @@ a{
   }
 }
 
-.color .collapsible:nth-child(6n + 5){
+ .collapsible:nth-child(6n + 5){
   &.open{
     animation: colorFade3 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -224,7 +228,7 @@ a{
   }
 }
 
-.color .collapsible:nth-child(6n + 6){
+ .collapsible:nth-child(6n + 6){
   &.open{
     animation: colorFade4 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -234,7 +238,7 @@ a{
   }
 }
 
-.color .collapsible:nth-child(6n + 7){
+ .collapsible:nth-child(6n + 7){
   &.open{
     animation: colorFade5 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -244,12 +248,28 @@ a{
   }
 }
 
-.color .collapsible:nth-child(6n + 8){
+ .collapsible:nth-child(6n + 8){
   &.open{
     animation: colorFade6 0.7s ease 1;
     animation-fill-mode: forwards;
     .line{
       border-color: $neongreen;
+    }
+  }
+}
+
+.grey .collapsible{
+  &.open{
+    filter: grayscale(1);
+    .trigger{
+      color: white;
+    }
+    color: white;
+    .collapsible-content{
+      color: white;
+    }
+    .line{
+      border-color: white;
     }
   }
 }
@@ -285,8 +305,8 @@ a{
 }
 
 @keyframes colorFade {
-  0%   {background-color:transparent; color: $black;}
-  100% {background-color:white; color:$black;}
+  0%   {color: $black;}
+  100% {color:$black;}
 }
 
 @keyframes fadeIn {

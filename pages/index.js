@@ -9,6 +9,7 @@ export default function Home({page, settings}) {
   function toggleColor(){
     document.getElementById('toggle').classList.toggle('active');
     document.getElementById('content').classList.toggle('color');
+    document.getElementById('content').classList.toggle('grey');
   }
 
   var settingsSlider = {
