@@ -319,6 +319,12 @@ a{
   100% {opacity: 0;}
 }
 
+.right{
+  display: block;
+  margin-right: 0;
+  margin-left: auto;
+}
+
 footer{
   position: fixed;
   bottom: 0;
