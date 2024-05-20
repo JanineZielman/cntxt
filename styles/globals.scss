@@ -67,8 +67,11 @@ h2{
   max-width: 1000px;
   justify-content: center;
   margin: auto;
-  padding: 0 3vw 1vw 3vw;
-
+  padding: 50px 3vw 50px 3vw;
+  &.slagzin-page{
+    max-width: 1300px;
+    justify-content: space-evenly;
+  }
   h2{
     font-size: $medium;
     margin-top: calc($medium/2);
@@ -163,7 +166,7 @@ a{
     transition: opacity 1s ease;
     padding: 0 3vw;
     .column{
-      width: 45%;
+      width: 48%;
       img{
         margin-top: 14px;
         width: 100%;

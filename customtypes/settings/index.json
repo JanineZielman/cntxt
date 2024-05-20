@@ -30,6 +30,10 @@
           "allowTargetBlank": true,
           "multi": "paragraph,strong,em,hyperlink"
         }
+      },
+      "google_description": {
+        "type": "Text",
+        "config": { "label": "Google Description", "placeholder": "" }
       }
     }
   }

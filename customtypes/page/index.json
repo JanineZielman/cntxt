@@ -1,0 +1,32 @@
+{
+  "id": "page",
+  "label": "Page",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": { "type": "UID", "config": { "label": "UID", "placeholder": "" } },
+      "title": {
+        "type": "Text",
+        "config": { "label": "Title", "placeholder": "" }
+      },
+      "slagzin": {
+        "type": "Group",
+        "config": {
+          "label": "Slagzin",
+          "fields": {
+            "item": {
+              "type": "Text",
+              "config": { "label": "Item", "placeholder": "" }
+            }
+          }
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": { "choices": { "collapsible": { "type": "SharedSlice" } } }
+      }
+    }
+  }
+}

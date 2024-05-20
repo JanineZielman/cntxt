@@ -74,6 +74,74 @@ type HomeDocumentDataSlicesSlice = CollapsibleSlice;
  */
 export type HomeDocument<Lang extends string = string> =
   prismicT.PrismicDocumentWithUID<Simplify<HomeDocumentData>, "home", Lang>;
+/** Content for Page documents */
+interface PageDocumentData {
+  /**
+   * Title field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  title: prismicT.KeyTextField;
+  /**
+   * Slagzin field in *Page*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.slagzin[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  slagzin: prismicT.GroupField<Simplify<PageDocumentDataSlagzinItem>>;
+  /**
+   * Slice Zone field in *Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismicT.SliceZone<PageDocumentDataSlicesSlice>;
+}
+/**
+ * Item in Page → Slagzin
+ *
+ */
+export interface PageDocumentDataSlagzinItem {
+  /**
+   * Item field in *Page → Slagzin*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.slagzin[].item
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  item: prismicT.KeyTextField;
+}
+/**
+ * Slice for *Page → Slice Zone*
+ *
+ */
+type PageDocumentDataSlicesSlice = CollapsibleSlice;
+/**
+ * Page document from Prismic
+ *
+ * - **API ID**: `page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PageDocument<Lang extends string = string> =
+  prismicT.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 /** Content for Settings documents */
 interface SettingsDocumentData {
   /**
@@ -120,6 +188,17 @@ interface SettingsDocumentData {
    *
    */
   footer: prismicT.RichTextField;
+  /**
+   * Google Description field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.google_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  google_description: prismicT.KeyTextField;
 }
 /**
  * Settings document from Prismic
@@ -136,7 +215,7 @@ export type SettingsDocument<Lang extends string = string> =
     "settings",
     Lang
   >;
-export type AllDocumentTypes = HomeDocument | SettingsDocument;
+export type AllDocumentTypes = HomeDocument | PageDocument | SettingsDocument;
 /**
  * Primary content in Collapsible → Primary
  *
@@ -233,6 +312,10 @@ declare module "@prismicio/client" {
       HomeDocumentDataSlagzinItem,
       HomeDocumentDataSlicesSlice,
       HomeDocument,
+      PageDocumentData,
+      PageDocumentDataSlagzinItem,
+      PageDocumentDataSlicesSlice,
+      PageDocument,
       SettingsDocumentData,
       SettingsDocument,
       AllDocumentTypes,

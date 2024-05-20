@@ -13,9 +13,15 @@ const Collapsible = ({ slice }) => {
 
   const sliderRef = useRef();
   
-  function toggleClass() {
-    var element = document.getElementById(slice.id);
-    element.classList.toggle("open");
+  function toggleClass(event) {
+    if (event.target.parentElement.getElementsByClassName('collapsible-content')[0]?.innerHTML.length > 0 || event.target.parentElement.parentElement.getElementsByClassName('collapsible-content')[0]?.innerHTML.length > 0){
+      var element = document.getElementById(slice.id);
+      if (element.classList.contains("open-home")){
+        element.classList.remove('open-home')
+      } else{
+        element.classList.toggle("open");
+      }
+    }
   }
 
   const settings = {
@@ -37,7 +43,7 @@ const Collapsible = ({ slice }) => {
 
 
   return (
-    <div className={`collapsible ${slice.primary.title == 'welkom' && 'open'}`} id={slice.id}>
+    <div className={`collapsible ${slice.primary.title == 'welkom' && 'open open-home'}`} id={slice.id}>
       <div className="trigger" onClick={toggleClass}>{slice.primary.title}<div className="line"></div></div>
       <div className="collapsible-content">
         {slice.primary.imageslideshow != true ?

@@ -2,7 +2,6 @@ import Head from 'next/head'
 import { createClient } from "../prismicio";
 import { SliceZone, PrismicRichText } from "@prismicio/react";
 import { components } from "../slices";
-import Slider from "react-slick";
 
 export default function Home({page, settings}) {
 
@@ -10,16 +9,6 @@ export default function Home({page, settings}) {
     document.getElementById('toggle').classList.toggle('active');
     document.getElementById('content').classList.toggle('color');
   }
-
-  var settingsSlider = {
-    slidesToScroll: 1,
-    arrows: false,
-    dots: false,
-    vertical: true,
-    verticalSwiping: true,
-    autoplay: true,
-    autoplaySpeed: 3000,
-  };
 
   return (
     <>
@@ -38,19 +27,12 @@ export default function Home({page, settings}) {
               <div className='button' id="toggle" onClick={toggleColor}></div>
             </div>
           </div>
-          <div className='slagzin'>
-            <h2 className='first'>maakt</h2>
-            <div className='animation'>
-              <Slider {...settingsSlider}>
-                {page.data.slagzin.map((item, i) => {
-                  return(
-                    <div><h2>{item.item}</h2></div>
-                  )
-                })}
-              </Slider>
-          
-            </div>
-            <h2 className='last'>van verschil</h2>
+          <div className='slagzin slagzin-page'>
+            {page.data.slagzin.map((item, i) => {
+              return(
+                <h2>{item.item}</h2>
+              )
+            })}
           </div>
           <SliceZone slices={page.data.slices} components={components} />
         </div>
@@ -62,11 +44,10 @@ export default function Home({page, settings}) {
   )
 }
 
-
-export async function getStaticProps({ previewData }) {
+export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
 
-  const page = await client.getSingle("home");
+  const page = await client.getByUID("page", params.uid);
   const settings = await client.getSingle("settings");
 
   return {
@@ -74,5 +55,20 @@ export async function getStaticProps({ previewData }) {
       page,
       settings,
     },
+  };
+}
+
+export async function getStaticPaths() {
+  const client = createClient();
+
+  const pages = await client.getAllByType("page");
+
+  return {
+    paths: pages.map((page) => {
+      return {
+        params: { uid: page.uid },
+      };
+    }),
+    fallback: false,
   };
 }

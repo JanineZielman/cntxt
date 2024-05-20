@@ -78,6 +78,13 @@
         opacity: 1;
       }
     }
+    &.open-home{
+      .collapsible-content{
+        height: 0;
+        animation: none;
+      }
+    }
+    
   }
   footer{
     flex-direction: column;
