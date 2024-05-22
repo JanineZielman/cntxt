@@ -1,45 +1,43 @@
 import * as prismic from "@prismicio/client";
+import * as prismicH from "@prismicio/helpers";
 import * as prismicNext from "@prismicio/next";
-import config from "./slicemachine.config.json";
+
+import sm from "./sm.json";
 
 /**
  * The project's Prismic repository name.
  */
-export const repositoryName = config.repositoryName;
-
+export const repositoryName = prismic.getRepositoryName(sm.apiEndpoint);
 /**
- * A list of Route Resolver objects that define how a document's `url` field
- * is resolved.
+ * The project's Prismic Link Resolver. This function determines the URL for a
+ * given Prismic document.
  *
- * {@link https://prismic.io/docs/route-resolver#route-resolver}
+ * A Link Resolver is used rather than a Route Resolver because we need to
+ * resolve URLs for documents' `alternate_languages` items. The
+ * `alternate_languages` array does not include URLs.
  *
- * @type {prismic.ClientConfig["routes"]}
+ * @type {prismicH.LinkResolverFunction}
  */
-// TODO: Update the routes array to match your project's route structure.
-const routes = [
-  {
-    type: "home",
-    path: "/",
+export const linkResolver = (doc) => {
+  if (doc.type === "page") {
+    return `/${doc.uid}`;
   }
-];
+  if (doc.type === "home") {
+    return `/`;
+  }
+  return `/`;
+};
 
 /**
  * Creates a Prismic client for the project's repository. The client is used to
  * query content from the Prismic API.
  *
- * @param {prismicNext.CreateClientConfig} config - Configuration for the Prismic client.
+ * @param config {prismicNext.CreateClientConfig} - A configuration object to
  */
-export const createClient = (config = {}) => {
-  const client = prismic.createClient(repositoryName, {
-    routes,
-    ...config,
-  });
+export const createClient = ({ previewData, req, ...config } = {}) => {
+  const client = prismic.createClient(sm.apiEndpoint, config);
 
-  prismicNext.enableAutoPreviews({
-    client,
-    previewData: config.previewData,
-    req: config.req,
-  });
+  prismicNext.enableAutoPreviews({ client, previewData, req });
 
   return client;
 };
