@@ -14,7 +14,7 @@ const Collapsible = ({ slice }) => {
   const sliderRef = useRef();
   
   function toggleClass(event) {
-    if (event.target.parentElement.getElementsByClassName('collapsible-content')[0]?.innerHTML.length > 0 || event.target.parentElement.parentElement.getElementsByClassName('collapsible-content')[0]?.innerHTML.length > 0){
+    if (event.target.parentElement.getElementsByClassName('collapsible-content')[0]?.innerHTML.length > 0 ){
       var element = document.getElementById(slice.id);
       if (element.classList.contains("open-home")){
         element.classList.remove('open-home')
