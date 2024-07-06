@@ -198,7 +198,7 @@ a{
   }
 }
 
- .collapsible:nth-child(6n + 3){
+.ongeregeld-goed .collapsible{
   &.open{
     animation: colorFade1 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -208,7 +208,7 @@ a{
   }
 }
 
- .collapsible:nth-child(6n + 4){
+.anarchien .collapsible{
   &.open{
     animation: colorFade2 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -218,7 +218,27 @@ a{
   }
 }
 
- .collapsible:nth-child(6n + 5){
+.home .collapsible:nth-child(6n + 3){
+  &.open{
+    animation: colorFade1 0.7s ease 1;
+    animation-fill-mode: forwards;
+    .line{
+      border-color: $red;
+    }
+  }
+}
+
+.home .collapsible:nth-child(6n + 4){
+  &.open{
+    animation: colorFade2 0.7s ease 1;
+    animation-fill-mode: forwards;
+    .line{
+      border-color: $lgreen;
+    }
+  }
+}
+
+ .home .collapsible:nth-child(6n + 5){
   &.open{
     animation: colorFade3 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -228,7 +248,7 @@ a{
   }
 }
 
- .collapsible:nth-child(6n + 6){
+ .home .collapsible:nth-child(6n + 6){
   &.open{
     animation: colorFade4 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -238,7 +258,7 @@ a{
   }
 }
 
- .collapsible:nth-child(6n + 7){
+ .home .collapsible:nth-child(6n + 7){
   &.open{
     animation: colorFade5 0.7s ease 1;
     animation-fill-mode: forwards;
@@ -248,7 +268,7 @@ a{
   }
 }
 
- .collapsible:nth-child(6n + 8){
+ .home .collapsible:nth-child(6n + 8){
   &.open{
     animation: colorFade6 0.7s ease 1;
     animation-fill-mode: forwards;

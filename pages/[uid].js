@@ -20,7 +20,7 @@ export default function Home({page, settings}) {
         <meta property="og:description" content={settings.data.google_description}></meta>
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
-      <main className={` `}>   
+      <main className={`${page.uid}`}>   
         <div className="content color" id="content">
           <div className='header'>
             <h1>{page.data.title}</h1>
